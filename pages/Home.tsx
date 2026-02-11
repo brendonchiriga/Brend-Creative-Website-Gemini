@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Code, PenTool, Layout, Monitor, Printer, CreditCard, TrendingUp, X, Database } from 'lucide-react';
+import { ArrowRight, Code, PenTool, Layout, Monitor, Printer, CreditCard, TrendingUp, X, Database, Rocket, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/ScrollReveal';
 import MagneticButton from '../components/MagneticButton';
@@ -395,28 +395,60 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Promo Section (Replaces generic CTA) */}
       <section className="py-12 md:py-16 bg-white/5 backdrop-blur-md border-t border-white/5">
         <ScrollReveal className="max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-12 lg:gap-8 bg-gradient-to-r from-[#1A1A2E]/90 to-[#161625]/90 p-8 md:p-12 lg:p-10 rounded-3xl border border-white/5 backdrop-blur-sm text-center lg:text-left">
-                <div className="max-w-xl mx-auto lg:mx-0">
-                     <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Ready to start your project?</h2>
-                     <p className="text-gray-400 text-sm md:text-base">Contact us today for a free consultation and quote.</p>
-                </div>
-                {/* Actions container */}
-                <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-8 lg:gap-6 justify-center w-full lg:w-auto">
-                    <Link to="/contact">
-                        <button className="bg-brand-cyan text-black px-8 py-3 rounded-md font-bold hover:bg-white transition-colors min-w-[180px]">
-                            GET FREE QUOTE
-                        </button>
-                    </Link>
-                    <div className="text-white font-medium flex items-center gap-3 text-sm md:text-base bg-white/5 px-4 py-2 rounded-lg border border-white/10 hover:border-brand-cyan/30 transition-colors">
-                        <span className="hidden sm:inline text-gray-400 text-xs uppercase font-bold tracking-wide">Call Us</span>
-                        <div className="w-8 h-8 rounded-full bg-brand-cyan/20 flex items-center justify-center text-brand-cyan">
-                            <span className="text-lg">📞</span>
+            <div className="relative group overflow-hidden bg-gradient-to-br from-[#1A1A2E] via-[#151525] to-[#0B0B15] p-8 md:p-10 lg:p-12 rounded-[2rem] border border-white/10 hover:border-brand-cyan/30 transition-all duration-500 shadow-2xl">
+                
+                {/* Animated Background Elements */}
+                <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-brand-cyan/5 rounded-full blur-[80px] group-hover:bg-brand-cyan/10 transition-all duration-700 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-brand-purple/5 rounded-full blur-[80px] group-hover:bg-brand-purple/10 transition-all duration-700 pointer-events-none"></div>
+
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16 relative z-10">
+                    
+                    {/* Left Content */}
+                    <div className="flex-1 text-center lg:text-left">
+                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-brand-purple/20 to-brand-cyan/20 border border-brand-purple/30 text-white font-bold text-xs uppercase tracking-wider mb-6 animate-pulse">
+                            <Rocket size={14} className="text-brand-cyan" />
+                            <span>Limited Time Offer</span>
                         </div>
-                        <span className="whitespace-nowrap font-mono tracking-tight">+263 777 177 780</span>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                            Startup Combo <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-cyan">Package</span>
+                        </h2>
+                        <p className="text-gray-400 text-base md:text-lg mb-8 leading-relaxed max-w-2xl">
+                            Launch your business with confidence. Get a professional <strong>Website, Logo, Letterhead, Company Profile, and Flyer</strong> in one powerful bundle.
+                        </p>
+                        
+                        <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-6">
+                            {['5-in-1 Bundle', 'Fast Turnaround', 'Premium Quality'].map((item, i) => (
+                                <div key={i} className="flex items-center gap-2 text-sm text-gray-300 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
+                                    <Check size={14} className="text-brand-cyan" />
+                                    <span>{item}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
+
+                    {/* Right Content - Price Card */}
+                    <div className="w-full lg:w-auto flex-shrink-0">
+                        <div className="bg-white/5 backdrop-blur-md border border-white/10 p-6 md:p-8 rounded-2xl text-center min-w-[280px] transform transition-transform group-hover:scale-105 duration-300">
+                             <p className="text-gray-500 text-sm line-through mb-1">Total Value $450+</p>
+                             <div className="flex items-center justify-center gap-1 mb-2">
+                                <span className="text-3xl font-bold text-brand-purple mt-2">$</span>
+                                <span className="text-7xl font-bold text-white tracking-tighter">275</span>
+                             </div>
+                             <p className="text-gray-400 text-xs font-medium uppercase tracking-wide mb-6">One-Time Investment</p>
+                             
+                             <MagneticButton className="w-full">
+                                <Link to="/services#startup-package" className="block w-full">
+                                    <button className="w-full py-4 rounded-xl bg-gradient-to-r from-brand-purple to-brand-cyan text-black font-bold text-lg hover:shadow-lg hover:shadow-brand-cyan/25 transition-all">
+                                        Claim Deal Now
+                                    </button>
+                                </Link>
+                            </MagneticButton>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </ScrollReveal>

@@ -174,6 +174,7 @@ const Services: React.FC = () => {
         </ScrollReveal>
 
         {/* Startup Combo Package */}
+        <div id="startup-package" className="scroll-mt-32"></div>
         <ScrollReveal className="mb-24 relative group">
             {/* Gradient Border/Glow Effect */}
             <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-purple to-brand-cyan rounded-[2rem] opacity-50 blur-sm transition duration-500 group-hover:opacity-100"></div>
